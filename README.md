@@ -266,5 +266,5 @@ Rajapinta palauttaa noudetut hävikit taulukossa sekä yhteenvedon, jota käy il
 
 ## Lisenssi
 
-Tämä projekti on lisenssoitu MIT-lisenssillä. Katso lisenssin tiedot tarkemmin [LICENSE](https://github.com/Biodibi/kiertotalous_web/blob/master/LICENSE.md) tiedostosta.
+Tämän projektin lähdekoodi on lisenssoitu MIT-lisenssillä. Katso lisenssin tiedot tarkemmin [LICENSE](https://github.com/Biodibi/kiertotalous_web/blob/master/LICENSE.md) tiedostosta. Mikäli sovelluksessa on käytetty kolmannen osapuolen työkaluja,  komponenentteja tai vastaavia, noudetetaan niiden osalta ilmoitettuja lisenssiehtoja.
 
