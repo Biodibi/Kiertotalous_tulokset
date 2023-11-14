@@ -1,12 +1,12 @@
-# Kiertotalous web-sovellus
+# HavikkiHaly web-sovellus
 
-Kiertotalous web-sovellus esittää kiertotalous [mobiilisovelluksen](https://github.com/Biodibi/kiertotalous_app) keräämät tiedot kauppojen jatkojalostukseen toimittamasta ylijäämästä ilmastovaikutuksina halutulta aikaväliltä. Ilmastovaikutukset lasketaan ilmoitetun hedelmä- ja vihannesylijäämän (hävikin) perusteella hiilidioksidin ja metaanin määränä kiloina, joka säästetään, kun ylijäämä ei päädy jätteeksi, vaan jalostetaan ruoaksi. Laskennassa otetaan huomioon myös kuljetuksesta ja tuotannosta aiheutuvat päästöt.
+HavikkiHaly web-sovellus esittää HavikkiHaly [mobiilisovelluksen](https://github.com/Biodibi/kiertotalous_app) keräämät tiedot kauppojen jatkojalostukseen toimittamasta hävikistä ilmastovaikutuksina halutulta aikaväliltä. Ilmastovaikutukset lasketaan ilmoitetun hedelmä- ja vihanneshävikin perusteella hiilidioksidin ja metaanin määränä kiloina, joka säästetään, kun hävikki ei päädy jätteeksi, vaan jalostetaan ruoaksi. Laskennassa otetaan huomioon myös kuljetuksesta ja tuotannosta aiheutuvat päästöt.
 
 ## Sovelluksen toiminta
 
-Kiertotalous web-sovellusta voivat käyttää kaupat, jotka ilmoittavat ylijäämästä tai ylijäämää jatkojalostavat hyödyntäjät. Kaupat näkevät sivustolta helposti toimitetun ylijäämän määrän kiloina sekä ilmastovaikutuksena säästetyn hiilidioksidin ja metaanin määrän kiloina halutulta aikaväliltä. Hyödyntäjä näkee vastaavat asiat kaikkien niiden kauppojen osalta, joista ylijäämää on noudettu.
+HavikkiHaly web-sovellusta voivat käyttää kaupat, jotka ilmoittavat ruokahävikistä tai ruokahävikkiä jatkojalostavat hyödyntäjät. Kaupat näkevät sivustolta helposti toimitetun ruokahävikin määrän kiloina sekä ilmastovaikutuksena säästetyn hiilidioksidin ja metaanin määrän kiloina halutulta aikaväliltä. Hyödyntäjä näkee vastaavat asiat kaikkien niiden kauppojen osalta, joista ruokahävikkiä on noudettu.
 
-Kiertotalous web-sovellukseen kirjaudutaan käyttäjätunnuksilla. Käyttäjätilejä on kahta eri tyyppiä: kaupan ja hyödyntäjän tili. Tämän perusteella määritellään, mitä tietoja ylijäämästä sivusto näyttää. Esimerkiksi kaupan tilillä kirjauduttaessa ylijäämät ja saavutetut ilmastohyödyt näytetään vain valitun kaupan osalta.
+HavikkiHaly web-sovellukseen kirjaudutaan käyttäjätunnuksilla. Käyttäjätilejä on kahta eri tyyppiä: kaupan ja hyödyntäjän tili. Tämän perusteella määritellään, mitä tietoja ruokahävikistä sivusto näyttää. Esimerkiksi kaupan tilillä kirjauduttaessa ruokahävikki ja saavutetut ilmastohyödyt näytetään vain valitun kaupan osalta.
 
 ![Kirjautuminen sovellukseen](https://github.com/Biodibi/kiertotalous_web/blob/master/images/kiertotalous_login.png)
 
@@ -15,18 +15,18 @@ Web-sovellus koostuu yhdestä pääsivusta, jossa näytetään neljä osiota:
 1. Kuluneen vuoden hävikki ja saavutetut ilmastohyödyt
 2. Kuluvan kuukauden hävikki ja saavutetut ilmastohyödyt
 3. Kuluvan vuoden hävikit ja saavutetut ilmastosvaikutukset kuukausittain 
-4. Kerätyt ylijäämät valitulta kuukaudelta
+4. Kerätyt hävikit valitulta kuukaudelta
 
 ![Sovelluksen päänäkymä](https://github.com/Biodibi/kiertotalous_web/blob/master/images/kiertotalous_paanakyma.png)
 
 Käyttäjä voi vaihtaa tarkasteltavaa kuukautta 3. osiosta (vasemmalla alhaalla), jolloin 2.osiossa (oikealla ylhäällä) sekä 4. osiossa (oikealla alhaalla) olevat tiedot päivittyvät valitun kuukauden mukaisiksi.
 
 Tässä vaiheeessa muita toiminnallisuuksia ei ole toteutettu, mutta tallennetun tiedon perusteella voidaan tarvittaessa luoda 
-helposti erilaisia näkymiä tai tilastoja kerätystä ylijäämästä ja saavutetuista ilmastohyödyistä ei aikaväleiltä.
+helposti erilaisia näkymiä tai tilastoja kerätystä ruokahävikistä ja saavutetuista ilmastohyödyistä ei aikaväleiltä.
 
 ## Ilmastovaikutuksen laskenta
 
-Hedelmä- ja vihannesylijäämästä syntyvän biokaasun määrä lasketaan seuraavilla kertoimilla:
+Hedelmä- ja vihanneshävikistä syntyvän biokaasun määrä lasketaan seuraavilla kertoimilla:
 
 ```
 1 kg jätettä tuottaa 0,3983 kg hiilidioksisia.
@@ -44,11 +44,11 @@ Kuljetuksesta syntyy päästöjä seuraavasti:
 
 Tuotannosta aiheutuvat päästöt lasketana ohjelmaan asetetulla kertoimella, minkä perusteella saavutetuista ilmastohyödyistä vähennetään tuotannosta aiheutuneet päästöt. Tässä web-sovelluksessa kertoimena on käytetty 10%.
 
-Saavutettujen ilmastohyötyjen kokonaisvaikutus lasketaan kertomalla noudetun hedelmä- ja vihannesjätteen määrä yllä mainitulla kertoimilla, jolloin saadaan laskettua syntyvä biokaasun määrä, joka säästetään, kun ylijäämä ei päädy jätteeksi. Tästä vähennetään kuljetuksesta ja tuotannosta aiheutuneet päästöt, jolloin saadaan ilmastohyötyjen kokonaisvaikutus.
+Saavutettujen ilmastohyötyjen kokonaisvaikutus lasketaan kertomalla noudetun hedelmä- ja vihannesjätteen määrä yllä mainitulla kertoimilla, jolloin saadaan laskettua syntyvä biokaasun määrä, joka säästetään, kun hävikki ei päädy jätteeksi. Tästä vähennetään kuljetuksesta ja tuotannosta aiheutuneet päästöt, jolloin saadaan ilmastohyötyjen kokonaisvaikutus.
 
 ## Sovelluksen toteutuksessa käytetyt tekniikat
 
-Kiertotalous web-sovellus on toteutettu Reactin versiolla 18. Sovelluksen toteuttamisessa on käytetty seuraavia React-kirjastoja:
+HavikkiHaly web-sovellus on toteutettu Reactin versiolla 18. Sovelluksen toteuttamisessa on käytetty seuraavia React-kirjastoja:
 
 1. [react-router-dom](https://www.npmjs.com/package/react-router-dom)
 2. [axios](https://www.npmjs.com/package/axios)
@@ -72,7 +72,7 @@ Asenna ja ota sovellus käyttöön seuraavasti:
 
 ## Sovelluksen käyttämä API-rajapinta
 
-Kiertotalous-sovellus tarjoaa kolme  REST-rajapintaa tietojen hakemiseen. Aluksi käyttäjä tunnistetaan user-rajapinnan avulla, joka palauttaa käyttäjä-objektin. Objekti sisältää mm. siteId- ja userId-kentät, joita käytetään myöhemmissä kutsuissa tunnistautumiseen sekä parametrina haettaville tiedoille. 
+HavikkiHaly web-sovellus tarjoaa kolme  REST-rajapintaa tietojen hakemiseen. Aluksi käyttäjä tunnistetaan user-rajapinnan avulla, joka palauttaa käyttäjä-objektin. Objekti sisältää mm. siteId- ja userId-kentät, joita käytetään myöhemmissä kutsuissa tunnistautumiseen sekä parametrina haettaville tiedoille. 
 
 
 ### Käyttäjän tietojen hakeminen
@@ -118,7 +118,7 @@ password string in path käyttäjän salasana
 
 ### Ilmastovaikutus toimipaikan mukaan
 
-Climate-impact-by-site -rajapinta palauttaa ilmastovaikutuksen laskennan tulokset sekä kertyneen ylijäämän tiedot halutulta aikaväliltä toimipaikan (site) mukaan. Tällä rajapinnalla esimerkiksi ruokakauppa voi hakea tiedon siitä, kuinka paljon ylijäämää on syntynyt ja mikä on saavutettu ilmastohyöty.
+Climate-impact-by-site -rajapinta palauttaa ilmastovaikutuksen laskennan tulokset sekä kertyneen hävikin tiedot halutulta aikaväliltä toimipaikan (site) mukaan. Tällä rajapinnalla esimerkiksi ruokakauppa voi hakea tiedon siitä, kuinka paljon ruokahävikkiä on syntynyt ja mikä on saavutettu ilmastohyöty.
 
 GET /climate-impact-by-site /{siteId}
 
@@ -137,7 +137,7 @@ ends    epoch in query aikavälin loppupäivä
 
 **Palauttaa**
 
-Rajapinta palauttaa noudetut hävikit taulukossa sekä yhteenvedon, jota käy ilmi noudetun ylijäämän määrä sekä ilmastolaskennan tulokset.  
+Rajapinta palauttaa noudetut hävikit taulukossa sekä yhteenvedon, josta käy ilmi noudetun ruokahävikin määrä sekä ilmastolaskennan tulokset.  
 
 ```
 {
@@ -163,21 +163,21 @@ Rajapinta palauttaa noudetut hävikit taulukossa sekä yhteenvedon, jota käy il
 }
 ```
 
-| Kenttä                     | Tietotyyppi | Selite                                                                                       |
-| -------------------------- | ------------| -------------------------------------------------------------------------------------------- |
-| uid                        | string      | Noudon/toimituksen tunniste                                                                  |
-| weight                     | float       | Ylijäämän määrä kiloissa                                                                     |
-| created                    | epoch       | Ylijäämän noutopaivä ja aika                                                                 |
-| c02Reduction               | float       | Ylijäämän painon perusteella laskettu ilmastohyötynä saavutetun hiilidioksidin määrä kiloina |
-| ch4Reduction               | float       | Ylijäämän painon perusteella laskettu ilmastohyötynä saavutetun metaanin määrä kiloina       |
-| transportationC02Emissions | float       | Kuljetuksesta aiheutuneet hiilidioksidipäästöt kiloina                                       |
-| productionC02Emissions     | float       | Tuotannosta aiheutuneet hiilidioksidipäästöt kiloina                                         |
-| totalC02Reduction          | float       | Ilmastohyötynä saavutetun hiilidioksidin kokonaismäärä kiloina                               |
-| totalCH4Reduction          | float       | Ilmastohyötynä saavutetun metaanin kokonaismäärä kiloina                                     |
+| Kenttä                     | Tietotyyppi | Selite                                                                                          |
+| -------------------------- | ------------| ----------------------------------------------------------------------------------------------- |
+| uid                        | string      | Noudon/toimituksen tunniste                                                                     |
+| weight                     | float       | Ruokahävikin määrä kiloissa                                                                     |
+| created                    | epoch       | Ruokahävikin noutopaivä ja aika                                                                 |
+| c02Reduction               | float       | Ruokahävikin painon perusteella laskettu ilmastohyötynä saavutetun hiilidioksidin määrä kiloina |
+| ch4Reduction               | float       | Ruokahävikin painon perusteella laskettu ilmastohyötynä saavutetun metaanin määrä kiloina       |
+| transportationC02Emissions | float       | Kuljetuksesta aiheutuneet hiilidioksidipäästöt kiloina                                          |
+| productionC02Emissions     | float       | Tuotannosta aiheutuneet hiilidioksidipäästöt kiloina                                            |
+| totalC02Reduction          | float       | Ilmastohyötynä saavutetun hiilidioksidin kokonaismäärä kiloina                                  |
+| totalCH4Reduction          | float       | Ilmastohyötynä saavutetun metaanin kokonaismäärä kiloina                                        |
 
 ### Ilmastovaikutus käyttäjän mukaan
 
-Climate-impact-by-user -rajapinta palauttaa ilmastovaikutuksen laskennan tulokset sekä kertyneen ylijäämän tiedot halutulta aikaväliltä käyttäjän (user) mukaan. Tällä rajapinnalla esimerkiksi ylijäämien hyödyntäjä voi hakea tiedon noudetuista ylijäämistä sekä tiedot saavutetuista ilmastohyödyistä. 
+Climate-impact-by-user -rajapinta palauttaa ilmastovaikutuksen laskennan tulokset sekä kertyneen ruokahävikin tiedot halutulta aikaväliltä käyttäjän (user) mukaan. Tällä rajapinnalla esimerkiksi ruokahävikin hyödyntäjä voi hakea tiedon noudetuista hävikeistä sekä tiedot saavutetuista ilmastohyödyistä. 
 
 GET /climate-impact-by-user /{userId}
 
@@ -195,7 +195,7 @@ ends    epoch in query aikavälin loppupäivä
 
 **Palauttaa**
 
-Rajapinta palauttaa noudetut hävikit taulukossa sekä yhteenvedon, jota käy ilmi noutopaikat, noudetun ylijäämän määrä sekä ilmastolaskennan tulokset.  Palautettavat tiedot sisältävät myös toimipaikkojen (noutopaikkojen) yhteystiedot sekä sijainnin.  
+Rajapinta palauttaa noudetut hävikit taulukossa sekä yhteenvedon, jota käy ilmi noutopaikat, noudetun ruokahävikin määrä sekä ilmastolaskennan tulokset.  Palautettavat tiedot sisältävät myös toimipaikkojen (noutopaikkojen) yhteystiedot sekä sijainnin.  
 
 ```
 {
@@ -244,25 +244,25 @@ Rajapinta palauttaa noudetut hävikit taulukossa sekä yhteenvedon, jota käy il
 
 ```
 
-| Kenttä                     | Tietotyyppi | Selite                                                                                       |
-| -------------------------- | ------------| -------------------------------------------------------------------------------------------- |
-| uid                        | string      | Toimituksen tunniste                                                                         |
-| siteId                     | string      | Toimipaikan (kaupan) id, josta ylijäämä noudettu                                             |
-| name                       | string      | Toimipaikan nimi                                                                             |
-| address                    | string      | Toimipaikan osoite                                                                           |
-| zipCode                    | string      | Toimipaikan postinumero                                                                      |
-| city                       | string      | Kaupunki, jossa toimipaikka sijaitsee                                                        |
-| phone                      | string      | Toimipaikan puhelinnumero                                                                    |
-| latitude                   | float       | Toimipaikan sijainnin leveyspiiri                                                            |
-| longitude                  | float       | Toimipaikan sijainnin pituuspiiri                                                            |
-| weight                     | float       | Noudetun ylijäämän määrä kiloissa                                                            |
-| created                    | epoch       | Ylijäämän noutopaivä ja aika                                                                 |
-| c02Reduction               | float       | Ylijäämän painon perusteella laskettu ilmastohyötynä saavutetun hiilidioksidin määrä kiloina |
-| ch4Reduction               | float       | Ylijäämän painon perusteella laskettu ilmastohyötynä saavutetun metaanin määrä kiloina       |
-| transportationC02Emissions | float       | Kuljetuksesta aiheutuneet hiilidioksidipäästöt kiloina                                       |
-| productionC02Emissions     | float       | Tuotannosta aiheutuneet hiilidioksidipäästöt kiloina                                         |
-| totalC02Reduction          | float       | Ilmastohyötynä saavutetun hiilidioksidin kokonaismäärä kiloina                               |
-| totalCH4Reduction          | float       | Ilmastohyötynä saavutetun metaanin kokonaismäärä kiloina                                     | 
+| Kenttä                     | Tietotyyppi | Selite                                                                                          |
+| -------------------------- | ------------| ----------------------------------------------------------------------------------------------- |
+| uid                        | string      | Toimituksen tunniste                                                                            |
+| siteId                     | string      | Toimipaikan (kaupan) id, josta ylijäämä noudettu                                                |
+| name                       | string      | Toimipaikan nimi                                                                                |
+| address                    | string      | Toimipaikan osoite                                                                              |
+| zipCode                    | string      | Toimipaikan postinumero                                                                         |
+| city                       | string      | Kaupunki, jossa toimipaikka sijaitsee                                                           |
+| phone                      | string      | Toimipaikan puhelinnumero                                                                       |
+| latitude                   | float       | Toimipaikan sijainnin leveyspiiri                                                               |
+| longitude                  | float       | Toimipaikan sijainnin pituuspiiri                                                               |
+| weight                     | float       | Noudetun ylijäämän määrä kiloissa                                                               |
+| created                    | epoch       | Ruokahävikin noutopaivä ja aika                                                                 |
+| c02Reduction               | float       | Ruokahävikin painon perusteella laskettu ilmastohyötynä saavutetun hiilidioksidin määrä kiloina |
+| ch4Reduction               | float       | Ruokahävikin painon perusteella laskettu ilmastohyötynä saavutetun metaanin määrä kiloina       |
+| transportationC02Emissions | float       | Kuljetuksesta aiheutuneet hiilidioksidipäästöt kiloina                                          |
+| productionC02Emissions     | float       | Tuotannosta aiheutuneet hiilidioksidipäästöt kiloina                                            |
+| totalC02Reduction          | float       | Ilmastohyötynä saavutetun hiilidioksidin kokonaismäärä kiloina                                  |
+| totalCH4Reduction          | float       | Ilmastohyötynä saavutetun metaanin kokonaismäärä kiloina                                        | 
 
 ## Lisenssi
 
